@@ -1,12 +1,13 @@
 import React from 'react';
 import { useSnapshot } from 'valtio';
 import state from '../store';
+import { getContrastingColor } from '../config/helpers';
 
 const generateStyles = (type) => {
     const snap = useSnapshot(state);
     if (type === 'filled') {
         return {
-            backgroundColor: 'purple',
+            backgroundColor: getContrastingColor(snap.color),
             color: snap.color
         }
     }
